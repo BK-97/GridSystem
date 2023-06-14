@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-    public bool hasObject;
+    #region Params
+    public GameObject middleObject;
     public GameObject gridObject;
+    public Material onMouseMat;
+    public Transform spawnArea;
+    [HideInInspector]
+    public bool hasObject;
+    [HideInInspector]
     public Vector3 gridPos;
-
+    [SerializeField]
+    private Material[] starterMats;
+    private bool isMouseOver;
+    #endregion
+    #region Methods
     public void Initialize(Vector3 pos)
     {
         gridPos = pos;
+        starterMats = middleObject.GetComponent<MeshRenderer>().sharedMaterials;
     }
     public void AddObject(GameObject gridGameObject)
     {
@@ -22,4 +33,35 @@ public class Grid : MonoBehaviour
         gridObject = null;
         hasObject = false;
     }
+    private void OnMouseEnter()
+    {
+        MouseOverGrid();
+    }
+
+    private void OnMouseExit()
+    {
+        MouseIsAway();
+    }
+    public void MouseOverGrid()
+    {
+        if (isMouseOver)
+            return;
+        isMouseOver = true;
+
+        Material[] mats = middleObject.GetComponent<MeshRenderer>().sharedMaterials;
+        mats[0] = onMouseMat;
+        middleObject.GetComponent<MeshRenderer>().sharedMaterials = mats;
+
+    }
+    public void MouseIsAway()
+    {
+        if (!isMouseOver)
+            return;
+
+        Material[] mats = middleObject.GetComponent<MeshRenderer>().sharedMaterials;
+        mats = starterMats;
+        middleObject.GetComponent<MeshRenderer>().sharedMaterials = mats;
+        isMouseOver = false;
+    }
+    #endregion
 }

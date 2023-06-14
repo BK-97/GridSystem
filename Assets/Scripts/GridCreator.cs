@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class GridCreator : MonoBehaviour
 {
+    #region Params
     [SerializeField]
     private int gridMapHeight=1;
     [SerializeField]
     private int gridMapWidth=1;
     [SerializeField]
     private GameObject gridPrefab;
-
-    private void Start()
-    {
-        CreateGrid();
-    }
+    #endregion
+    #region Methods
     public void CreateGrid()
     {
         DeleteChildGrids();
@@ -51,5 +49,6 @@ public class GridCreator : MonoBehaviour
 #endif
         }
     }
+    #endregion
 
 }

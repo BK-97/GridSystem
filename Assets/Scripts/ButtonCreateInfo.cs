@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class ButtonCreateInfo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject spawnPrefab;
 
-    // Update is called once per frame
-    void Update()
+    private TextMeshProUGUI textMesh;
+    private void Start()
     {
-        
+        textMesh = GetComponentInChildren<TextMeshProUGUI>();
+        textMesh.text = spawnPrefab.name;
+    }
+    public void GiveSpawnPrefabInfo()
+    {
+        ObjectManager.Instance.SetSelectedPrefab(spawnPrefab);
     }
 }
