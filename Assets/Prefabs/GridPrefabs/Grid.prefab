@@ -265,11 +265,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   middleObject: {fileID: 532898392954105998}
   gridObject: {fileID: 1093455633859174460}
-  onMouseMat: {fileID: 2100000, guid: a98297f2708738c4092a5930e3d2acf5, type: 2}
-  spawnArea: {fileID: 8376902020788587019}
+  objectArea: {fileID: 8376902020788587019}
   hasObject: 0
   gridPos: {x: 0, y: 0, z: 0}
-  starterMats: []
+  fullGridMat: {fileID: 2100000, guid: 6c65efc6f97a88a43a841e5963c3da8c, type: 2}
+  canObjectTakenMat: {fileID: 2100000, guid: 0c628ec726da41643b94621f96076c59, type: 2}
+  onMouseMat: {fileID: 2100000, guid: a98297f2708738c4092a5930e3d2acf5, type: 2}
 --- !u!65 &2130861228972713278
 BoxCollider:
   m_ObjectHideFlags: 0
